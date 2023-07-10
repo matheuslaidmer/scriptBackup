@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Created by Matheus Laidmer da Silva
+# Created 10/07/2023
+# Last updated 10/07/2023
+
+# This script creates a backup of the home directory of the actual user in whatever folder
+# the user is.
+
+# used for backup purposes
+
+currentdir=$(pwd)
+
+echo "Hello, ${USER^}!"
+echo "I will now back up your home directory, $HOME"
+
+echo "you are running this script from $currentdir"
+echo "therefore, I will save the backup in $currentdir"
+tar -cf ${currentdir}/my_backup_"$(date +%d-%m-%Y_%H-%M-%S)".tar ~/* 2>/dev/null
+
+echo "backup completed successfully"
+exit 0
